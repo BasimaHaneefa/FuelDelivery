@@ -1,0 +1,37 @@
+{% extends 'Dealer/header.html' %}
+{% load static %}
+{% block content %}
+<br><br><br><br><br><br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tab">
+    <table border="1" align="center">
+        <tr>
+            <td colspan="2" align="center"><img src="{{Dealer.dealer_photo.url}}" width="150" height="150" style="border-radius: 50%;"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{Dealer.dealer_name}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{Dealer.dealer_email}}</td>
+        </tr>
+        <tr>
+            <td>Contact</td>
+            <td>{{Dealer.dealer_contact}}</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>{{Dealer.dealer_address}}</td>
+        </tr>
+    </table>
+</body>
+</html>
+{% endblock content %}

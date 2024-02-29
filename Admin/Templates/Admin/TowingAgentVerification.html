@@ -1,0 +1,107 @@
+{% extends 'Admin/Head.html'  %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br><br>
+    <div id="tab" align="center">
+    <h1 align="center">New TowingAgent</h1>
+    <table border="1" align="center">
+        <tr>
+            <td>Sl.no</td>
+            <td>Name</td>
+            <td>Photo</td>
+            <td>Contact</td>
+            <td>Email</td>
+            <td>Address</td>
+            <td>District</td>
+            <td>Place</td>
+            <td>Proof</td>
+            <td>Action</td>
+        </tr>
+        {% for i in New %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.agent_name}}</td>
+            <td><img src="{{i.agent_photo.url}}" width="150" height="150" ></td>
+            <td>{{i.agent_contact}}</td>
+            <td>{{i.agent_email}}</td>
+            <td>{{i.agent_address}}</td>
+            <td>{{i.place.district.district_name}}</td>
+            <td>{{i.place.place_name}}</td>
+            <td><a href="{{i.agent_proof.url}}" download>View</a></td>
+            <td><a href="{% url 'Webadmin:acceptagent' i.id %}">Accept</a>|
+                <a href="{% url 'Webadmin:rejectagent' i.id %}">Reject</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <h1 align="center">Accepted TowingAgent</h1>
+    <table border="1" align="center">
+        <tr>
+            <td>Sl.no</td>
+            <td>Name</td>
+            <td>Photo</td>
+            <td>Contact</td>
+            <td>Email</td>
+            <td>Address</td>
+            <td>District</td>
+            <td>Place</td>
+            <td>Proof</td>
+            <td>Action</td>
+        </tr>
+        {% for i in accepted %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.agent_name}}</td>
+            <td><img src="{{i.agent_photo.url}}" width="150" height="150" ></td>
+            <td>{{i.agent_contact}}</td>
+            <td>{{i.agent_email}}</td>
+            <td>{{i.agent_address}}</td>
+            <td>{{i.place.district.district_name}}</td>
+            <td>{{i.place.place_name}}</td>
+            <td><a href="{{i.agent_proof.url}}" download>View</a></td>
+            <td> <a href="{% url 'Webadmin:rejectagent' i.id %}">Reject</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <h1 align="center">Rejected TowingAgent</h1>
+    <table border="1" align="center">
+        <tr>
+            <td>Sl.no</td>
+            <td>Name</td>
+            <td>Photo</td>
+            <td>Contact</td>
+            <td>Email</td>
+            <td>Address</td>
+            <td>District</td>
+            <td>Place</td>
+            <td>Proof</td>
+            <td>Action</td>
+        </tr>
+        {% for i in rejected %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.agent_name}}</td>
+            <td><img src="{{i.agent_photo.url}}" width="150" height="150" ></td>
+            <td>{{i.agent_contact}}</td>
+            <td>{{i.agent_email}}</td>
+            <td>{{i.agent_address}}</td>
+            <td>{{i.place.district.district_name}}</td>
+            <td>{{i.place.place_name}}</td>
+            <td><a href="{{i.agent_proof.url}}" download>View</a></td>
+            <td><a href="{% url 'Webadmin:acceptagent' i.id %}">Accept</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+</body>
+</html>
+{% endblock content %}

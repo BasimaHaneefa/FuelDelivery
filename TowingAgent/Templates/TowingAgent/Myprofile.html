@@ -1,0 +1,39 @@
+{% extends 'TowingAgent/Head.html' %}
+{% load static %}
+{% block content %}
+<br><br><br><br><br><br><br><br><br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tab">
+    <table border="1" align="center">
+        <tr>
+            <td colspan="2" align="center"><img src="{{agent.agent_photo.url}}" width="150" height="150" style="border-radius: 50%;"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{agent.agent_name}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{agent.agent_email}}</td>
+        </tr>
+        <tr>
+            <td>Contact</td>
+            <td>{{agent.agent_contact}}</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>{{agent.agent_address}}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+<br><br><br><br>
+{% endblock content %}
